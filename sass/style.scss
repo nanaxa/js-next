@@ -1,0 +1,85 @@
+@import "_reset"; //  Сброс стилей
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,700&subset=cyrillic');
+* {
+    font-family: 'Roboto', sans-serif;
+}
+
+$containerWidth: 960px;
+$margin: 10px;
+$padding: 10px;
+$transition: all linear .2s;
+
+.container {
+    width: $containerWidth;
+    margin: auto;
+}
+
+
+header {
+    position: fixed;
+    top: 0;
+    display: block;
+    width: 100%;
+    box-shadow: #E0E0E0 0 0 10px;
+    background: #FAFAFA;
+
+    > .container {
+        display: flex;
+        justify-content: flex-end;
+        padding: $padding;
+    }
+}
+
+.cart-button {
+    padding: 6px 12px;
+    border: none;
+    font-weight: 700;
+    color: #FFF;
+    cursor: pointer;
+    background: #2196F3;
+    transition: $transition;
+}
+.cart-button:hover {
+    background: #1976D2;
+}
+
+
+main.container {
+    margin-top: 60px;
+}
+
+.goods-list {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-content: flex-start;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+.goods-item {
+    display: block;
+    width: ($containerWidth / 4) - ($margin * 2);
+    margin: $margin;
+    padding: $padding;
+    border: #EEEEEE solid 1px;
+    border-radius: 3px;
+    box-shadow: #F5F5F5 0 0 6px;
+    text-align: center;
+
+    h3 {
+        display: block;
+        width: 100%;
+        margin-bottom: 10px;
+        font-size: 32px;
+    }
+    p {
+        display: block;
+        width: 100%;
+        font-size: 28px;
+    }
+    p::after {
+        content: '$';
+        display: inline;
+        margin-left: .2rem;
+    }
+}
