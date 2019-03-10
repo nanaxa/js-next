@@ -251,12 +251,19 @@ main.container {
   display: block;
   width: 220px;
   margin: 10px;
-  padding: 10px;
+  padding: 10px 10px 15px;
   border: #EEEEEE solid 1px;
   border-radius: 3px;
   -webkit-box-shadow: #F5F5F5 0 0 6px;
           box-shadow: #F5F5F5 0 0 6px;
   text-align: center;
+}
+
+.goods-item img {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin-bottom: 10px;
 }
 
 .goods-item h3 {
@@ -272,9 +279,35 @@ main.container {
   font-size: 28px;
 }
 
-.goods-item p::after {
+.goods-item p::before {
   content: '$';
   display: inline;
-  margin-left: .2rem;
+  margin-right: .1rem;
+}
+
+.goods-item .addClick {
+  margin-top: 10px;
+  padding: 6px 12px;
+  border: none;
+  font-size: 16px;
+  font-weight: 700;
+  color: #FFF;
+  cursor: pointer;
+  background: #2196F3;
+  -webkit-transition: all linear 0.2s;
+  transition: all linear 0.2s;
+}
+
+.goods-item button:hover {
+  background: #1976D2;
+}
+
+.goods-total {
+  display: block;
+  width: 940px;
+  margin: 10px;
+  padding: 10px;
+  color: #424242;
+  background: #FAFAFA;
 }
 /*# sourceMappingURL=style.css.map */
