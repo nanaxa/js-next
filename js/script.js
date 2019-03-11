@@ -1,5 +1,5 @@
 class GoodItem {
-    constructor(title, price, img) {
+    constructor(title = 'Товар', price = 'Цена по запросу', img = 'img/no-image.jpg') {
         this.title = title;
         this.price = price;
         this.img = img;
@@ -7,9 +7,9 @@ class GoodItem {
     render() {
         return `<div class="goods-item">
                 <div class="goods-info">
-                  <img src="${this.img || 'img/no-image.jpg'}" alt="${this.title}">
+                  <img src="${this.img}" alt="${this.title}">
                   <h3>${this.title}</h3>
-                  <p>${this.price || 'Цена по запросу'}</p>
+                  <p>${this.price}</p>
                 </div>
                 <button class='addClick'>Добавить</button>
               </div>`;
@@ -40,7 +40,20 @@ class GoodsList {
                 title: 'Shoes',
                 price: 250,
                 img: 'images/shoes.jpg'
-            }
+            },
+            {
+                price: 250,
+                img: 'images/shoes.jpg'
+            },
+            {
+                title: 'Watch',
+                img: 'images/watches.jpg'
+            },
+            {
+                title: 'Shoes',
+                price: 250,
+            },
+            {}
         ]
     }
     render() {
@@ -54,7 +67,10 @@ class GoodsList {
     calcAllGoods() {
         let totalPrice = 0;
         this.goods.forEach((good) => {
-            totalPrice += good.price;
+            if(good.price !== undefined) {
+                totalPrice += good.price;
+                console.log(good.price);
+            }
         });
         let totalGoodsAnswer = "Все товары на сумму $" + totalPrice;
         document.querySelector('.goods-total').innerHTML = totalGoodsAnswer;
