@@ -211,9 +211,26 @@ header > .container {
   padding: 10px;
 }
 
+.catalog-button {
+  padding: 6px 12px;
+  border: none;
+  outline: none;
+  font-weight: 700;
+  color: #FFF;
+  cursor: pointer;
+  background: #43A047;
+  -webkit-transition: all linear 0.2s;
+  transition: all linear 0.2s;
+}
+
+.catalog-button:hover {
+  background: #2E7D32;
+}
+
 .cart-button {
   padding: 6px 12px;
   border: none;
+  outline: none;
   font-weight: 700;
   color: #FFF;
   cursor: pointer;
@@ -309,30 +326,6 @@ main.container {
   padding: 10px;
   color: #424242;
   background: #FAFAFA;
-}
-
-.wrap_basket {
-  width: 960px;
-  margin: auto;
-  padding: 10px;
-  background: #FAFAFA;
-}
-
-.basket-list {
-  width: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
-  -ms-flex-line-pack: start;
-      align-content: flex-start;
-  -webkit-box-align: start;
-      -ms-flex-align: start;
-          align-items: flex-start;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
 }
 
 .basket-item {

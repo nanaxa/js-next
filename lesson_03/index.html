@@ -11,11 +11,11 @@
     <header>
         <div class="container">
             <div>
-                <button class="cart-button" data-load="response.json" onclick="loadBut();">Товары задания</button>
-                <button class="cart-button" data-load="myresponse.json" onclick="loadBut();">Автомобили</button>
+                <button class="catalog-button" data-load="response.json" onclick="loadBut();">Товары задания</button>
+                <button class="catalog-button" data-load="myresponse.json" onclick="loadBut();">Автомобили</button>
             </div>
             <div>
-                <button class="cart-button">Корзина</button>
+                <button class="cart-button" onclick="viewCart()">Корзина <span id="cartcoint"></span></button>
             </div>
         </div>
     </header>
@@ -23,8 +23,5 @@
         <div class="goods-list"></div>
         <div class="goods-total"></div>
     </main>
-    <section class="wrap_basket">
-        <div class="basket-list"></div>
-    </section>
 </body>
 </html>
