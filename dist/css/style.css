@@ -310,4 +310,69 @@ main.container {
   color: #424242;
   background: #FAFAFA;
 }
+
+.wrap_basket {
+  width: 960px;
+  margin: auto;
+  padding: 10px;
+  background: #FAFAFA;
+}
+
+.basket-list {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -ms-flex-line-pack: start;
+      align-content: flex-start;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.basket-item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  width: 215px;
+  margin: 10px;
+  padding: 10px;
+  border: #EEEEEE solid 1px;
+  border-radius: 3px;
+  text-align: center;
+  background: #fff;
+}
+
+.basket-item img {
+  display: block;
+  width: 64px;
+  height: auto;
+  margin-bottom: 10px;
+  margin-right: 10px;
+}
+
+.basket-item h3 {
+  display: block;
+  width: 100%;
+  margin-bottom: 4px;
+  font-size: 20px;
+  text-align: left;
+}
+
+.basket-item p {
+  display: block;
+  width: 100%;
+  font-size: 14px;
+  text-align: left;
+}
 /*# sourceMappingURL=style.css.map */
