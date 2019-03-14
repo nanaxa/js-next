@@ -3,13 +3,13 @@
         {
             "format": "expanded",
             "extensionName": ".css",
-            "savePath": "/css"
+            "savePath": "/dist/css"
         },
         // More Complex
         {
             "format": "compressed",
             "extensionName": ".min.css",
-            "savePath": "/css"
+            "savePath": "/dist/css"
         }
     ],
     "liveSassCompile.settings.autoprefix": [

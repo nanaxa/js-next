@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>eShop</title>
+<link rel="stylesheet" href="../dist/css/style.min.css">
+<script src="script.js"></script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div>
+                <button class="cart-button" data-load="response.json" onclick="loadBut();">Товары задания</button>
+                <button class="cart-button" data-load="myresponse.json" onclick="loadBut();">Автомобили</button>
+            </div>
+            <div>
+                <button class="cart-button">Корзина</button>
+            </div>
+        </div>
+    </header>
+    <main class="container">
+        <div class="goods-list"></div>
+        <div class="goods-total"></div>
+    </main>
+</body>
+</html>
