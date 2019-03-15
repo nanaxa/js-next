@@ -2,6 +2,11 @@
 function addBasket(id) {
     cart.addToBasket(id);
 };
+// Внешняя функция для вызова удаления из корзины
+function deleteItem(id) {
+    cart.deleteFromBasket(id);
+};
+// Внешняя функция для вызова рендера корзины
 function viewCart() {
     cart.render();
 };
@@ -74,28 +79,24 @@ class GoodsList {
 
 // Класс элемента корзины
 class BasketItem {
-    // По сути, нам нужно отображать в корзине те же самые элементы, что и в списке
-    constructor(title, price, img) {
+    constructor(id, title, price, img) {
+        this.id = id;
         this.title = title;
         this.price = price;
         this.img = img;
     }
-    // Однако внешний вид может быть другим (пока не прописывал)
     render() {
-        return `<div class="basket-item"><img src="${this.img}" alt="${this.title}"><div class="basket-info"><h3>${this.title}</h3><p>${this.price}</p></div></div>`;
+        return `<div class="basket-item"><img src="${this.img}" alt="${this.title}"><div class="basket-info"><h3>${this.title}</h3><p>${this.price}</p></div><button class='deleteItem' onclick='deleteItem(${this.id})'>&times;</button></div>`;
     }
 }
 
 // Класс корзины
 class Basket {
     constructor() {
-        // В классе корзины массив с добавленными товарами
         this.cartGoods = [];
-        this.deletedGoods = []; // Можно заморочится и добавить товары, которые были удалены из корзины (их можно быстро вернуть в список - убираем боль/проблему поиска, если удалено случайно/пользователь передумал)
     }
     // Добавление товара в корзину (привязываем на нажатие кнопки)
     addToBasket(id) {
-        console.log(id);
         let toBasket;
         list.goods.forEach(function(item) {
             if(id == item.id) {
@@ -112,9 +113,21 @@ class Basket {
     }
 
     // Удаление товара из корзины (привязываем на нажатие кнопки)
-    deleteFromBasket() {}
+    deleteFromBasket(id) {
+        let getIdElemen;
+        this.cartGoods.forEach(function(item, i) {
+            let thisId = item.id;
+            if(id == thisId) {
+                getIdElemen = i;
+            }
+            
+        });
+        this.cartGoods.splice(getIdElemen, 1);
+        this.render();
+        this.basketCount();
+    }
 
-    // 
+    // Считаем стоимость товаров в корзине
     calcAllGoods() {
         let totalPrice = 0;
         this.cartGoods.forEach((good) => {
@@ -126,6 +139,7 @@ class Basket {
         document.querySelector('.goods-total').innerHTML = totalGoodsAnswer;
     }
 
+    // Считаем количество товаров в корзине и выводим на кнопку
     basketCount() {
         let count = this.cartGoods.length;
         document.getElementById('cartcoint').innerHTML = ' (' + count + ')';
@@ -135,7 +149,7 @@ class Basket {
     render() {
         let readHtml = '';
         this.cartGoods.forEach((good) => {
-            const goodItem = new BasketItem(good.title, good.price, good.img);
+            const goodItem = new BasketItem(good.id, good.title, good.price, good.img);
             readHtml += goodItem.render();
         })
         document.querySelector('.goods-list').innerHTML = readHtml;

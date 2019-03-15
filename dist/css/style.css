@@ -2,7 +2,6 @@
    v2.0 | 20110126
    License: none (public domain)
 */
-@import url("https://fonts.googleapis.com/css?family=Roboto:400,700&subset=cyrillic");
 * {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -183,7 +182,7 @@ button:-moz-focusring,
 }
 
 * {
-  font-family: 'Roboto', sans-serif;
+  font-family: "Segoe UI", "Roboto", "San Francisco", sans-serif;
 }
 
 .container {
@@ -329,6 +328,7 @@ main.container {
 }
 
 .basket-item {
+  position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -367,5 +367,24 @@ main.container {
   width: 100%;
   font-size: 14px;
   text-align: left;
+}
+
+.basket-item button.deleteItem {
+  position: absolute;
+  top: 0px;
+  right: -9px;
+  border: none;
+  padding: 0;
+  font-family: 'Roboto', sans-serif;
+  font-size: 30px;
+  line-height: 0;
+  color: #ef9a9a;
+  background: transparent;
+  -webkit-transition: all linear 0.2s;
+  transition: all linear 0.2s;
+}
+
+.basket-item button.deleteItem:hover {
+  color: #e53935;
 }
 /*# sourceMappingURL=style.css.map */

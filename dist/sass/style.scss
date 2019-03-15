@@ -1,7 +1,6 @@
 @import "_reset"; //  Сброс стилей
-@import url('https://fonts.googleapis.com/css?family=Roboto:400,700&subset=cyrillic');
 * {
-    font-family: 'Roboto', sans-serif;
+    font-family: "Segoe UI", "Roboto", "San Francisco", sans-serif;
 }
 
 $containerWidth: 960px;
@@ -130,6 +129,7 @@ main.container {
 }
 
 .basket-item {
+    position: relative;
     display: flex;
     align-items: center;
     align-content: center;
@@ -160,5 +160,22 @@ main.container {
         width: 100%;
         font-size: 14px;
         text-align: left;
+    }
+
+    button.deleteItem {
+        position: absolute;
+        top: 0px;
+        right: -9px;
+        border: none;
+        padding: 0;
+        font-family: 'Roboto', sans-serif;
+        font-size: 30px;
+        line-height: 0;
+        color: #ef9a9a;
+        background: transparent;
+        transition: $transition;
+    }
+    button.deleteItem:hover {
+        color: #e53935;
     }
 }
