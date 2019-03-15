@@ -17,16 +17,16 @@ function loadBut() {
     const src = element.getAttribute('data-load');
     list.fetchGoods(src);
 }
-// Функция запроса / ответа
+// Функция запроса / ответа на промисах
 function makeGETRequest(url, callback) {
-    let xhr = window.XMLHttpRequest ? new window.XMLHttpRequest() : new window.ActiveXObject;
-    xhr.onreadystatechange = function () {
-        if (xhr.readyState === 4 && xhr.status === 200) {
-            callback(xhr.responseText);
-        }
-    }
-    xhr.open('GET', url, true);
-    xhr.send();
+    return new Promise((resolve, reject) => {
+        console.log('Работает промис');
+        let xhr = window.XMLHttpRequest ? new window.XMLHttpRequest() : new window.ActiveXObject;
+        xhr.open("GET", url, true);
+        xhr.onload = () => resolve(callback(xhr.responseText));
+        xhr.onerror = () => reject(xhr.statusText);
+        xhr.send();
+      });
 }
 
 // Класс товара
