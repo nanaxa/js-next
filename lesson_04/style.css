@@ -1,10 +1,13 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,700');
 * {
     border: none;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     outline: none;
-    font-size: 16px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 18px;
+    line-height: 130%;
 }
 
 form {
@@ -34,8 +37,59 @@ textarea {
     padding: 10px;
     background: #f7f7f7;
 }
+textarea.regexp {
+    height: 210px;
+    margin-bottom: 15px;
+    border: #E0E0E0 solid 1px;
+    background: #fff;
+}
+textarea.regexp-out {
+    height: 210px;
+    margin-bottom: 15px;
+    border: #E0E0E0 solid 1px;
+}
 button {
+    margin-bottom: 10px;
     padding: 10px;
     color: #fff;
     background: #1976D2;
+}
+
+main {
+    display: flex;
+    align-items: flex-start;
+    align-content: flex-start;
+    width: 720px;
+    margin: 40px auto;
+    padding-top: 20px;
+    box-shadow: #cecece 0 0 10px;
+}
+aside {
+    display: block;
+    width: 50%;
+    padding: 0 20px 20px;
+}
+article {
+    display: block;
+    width: 50%;
+    height: auto;
+    padding: 0 20px 20px;
+}
+article > p {
+    display: block;
+    width: 100%;
+    margin-bottom: 0.5rem;
+}
+small {
+    display: block;
+    width: 100%;
+    font-size: 14px;
+    line-height: 100%;
+    margin-top: 2rem;
+    color: #757575;
+}
+h3 {
+    display: block;
+    margin: 0px 0 10px;
+    font-size: 20px;
 }
