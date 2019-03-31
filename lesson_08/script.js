@@ -1,3 +1,10 @@
+//module.js
+import module from './module.js';
+
+const calc = module.calc;
+console.log(calc(2, 3));
+
+
 // Компоненты внизу, поскольку используют некотые переменные, созданные в объекте app
 
 const app = new Vue({

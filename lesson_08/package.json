@@ -1,0 +1,34 @@
+{
+  "name": "js-next",
+  "version": "0.9.0",
+  "description": "- [X] 1. Добавьте стили для верхнего меню, товара, списка товаров и кнопки вызова корзины.\r - [X] 2. Добавьте значения по умолчанию для аргументов функции. Как можно упростить или сократить запись функций?\r - [X] 3. Сейчас после каждого товара на странице выводится запятая. Из-за чего это происходит? Как это исправить?",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack -p",
+    "watch": "webpack --watch",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/anatolykulikov/js-next.git"
+  },
+  "author": "Anatoly Kulikov",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/anatolykulikov/js-next/issues"
+  },
+  "homepage": "https://github.com/anatolykulikov/js-next#readme",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
+    "webpack": "^4.29.6",
+    "webpack-cli": "^3.3.0"
+  },
+  "keywords": [
+    "js",
+    "next",
+    "geekbrains",
+    "learning"
+  ]
+}
