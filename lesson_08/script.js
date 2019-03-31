@@ -1,16 +1,18 @@
 //module.js
-import {calcAllGoods, test, bus} from './module.js';
+import {bus} from './module.js';
 // Компоненты внизу, поскольку используют некотые переменные, созданные в объекте app
-var app = new Vue({
+const app = new Vue({
     el: '#app',
-    data: {
-        goods: [],
-        filteredGoods: [],
-        basketGoods: [],
-        searchLine: '',
-        isVisibleCart: true,
-        totalPriceMessage: '',
-        totalPriceCoin: ''
+    data() {
+        return {
+            goods: [],
+            filteredGoods: [],
+            basketGoods: [],
+            searchLine: '',
+            isVisibleCart: true,
+            totalPriceMessage: '',
+            totalPriceCoin: ''
+        }
     },
     methods: {
         makeGETRequest(url) {
@@ -72,8 +74,8 @@ var app = new Vue({
                 }
             }
         },
-        filterGoods() {
-            let regexp = new RegExp(this.searchLine, 'i');
+        filterGoods(searchLine) {
+            let regexp = new RegExp(searchLine, 'i');
             this.filteredGoods = this.goods.filter(good => regexp.test(good.title));
         },
         calcAllGoods() {
@@ -109,12 +111,6 @@ var app = new Vue({
         this.calcAllGoods();
     }
 });
-console.log(app);
-window.log = function () {
-    console.log(...arguments);
-    console.log(this);
-}
-
 // Компоненты товаров
 Vue.component('goods-list', {
     props: ['goods'],
