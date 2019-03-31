@@ -1,10 +1,12 @@
-//module.js
+// Импортируем моудли из module.js
 import module from './module.js';
 
-const calcAllGoods = module.calcAllGoods;
+const ImportDone = module.ImportDone;
+console.log(ImportDone());
 
 
 // Компоненты внизу, поскольку используют некотые переменные, созданные в объекте app
+
 const app = new Vue({
     el: '#app',
     data: {
@@ -76,6 +78,16 @@ const app = new Vue({
                 }
             }
         },
+        calcAllGoods() {
+            let totalPrice = 0;
+            this.basketGoods.forEach((good) => {
+                if (good.price !== undefined) {
+                    totalPrice += good.price;
+                }
+            });
+            this.totalPriceMessage = 'Cумма товаров в корзине: ' + totalPrice;
+            this.totalPriceCoin = totalPrice;
+        },
         filterGoods() {
             let regexp = new RegExp(this.searchLine, 'i');
             this.filteredGoods = this.goods.filter(good => regexp.test(good.title));
@@ -108,7 +120,7 @@ Vue.component('goods-list', {
 })
 Vue.component('goods-item', {
     props: ['good'],
-    template: '<div class="goods-item"><img :src="good.img" :alt="good.title"><h3>{{good.title}}</h3><p>{{good.price}}</p><button :id="good.id" v-on:click="app.addToBasket(event.target.id);">Добавить</button></div>'
+    template: '<div class="goods-item"><img :src="good.img" :alt="good.title"><h3>{{good.title}}</h3><p>{{good.price}}</p><button :id="good.id" v-on:click="addBasket(event)">Добавить</button></div>'
 })
 // Компоненты корзины
 Vue.component('basket-list', {
@@ -117,10 +129,21 @@ Vue.component('basket-list', {
 })
 Vue.component('basket-item', {
     props: ['good'],
-    template: '<div class="basket-item"><img :src="good.img" :alt="good.title"><button :id="good.id" v-on:click="app.deleteFromBasket(event.target.id)">&times;</button><div class="basket-item-info"><h3>{{good.title}}</h3><p>{{good.price}}</p></div></div>'
+    template: '<div class="basket-item"><img :src="good.img" :alt="good.title"><button :id="good.id" v-on:click="deleteItem(event)">&times;</button><div class="basket-item-info"><h3>{{good.title}}</h3><p>{{good.price}}</p></div></div>'
 })
 // Компоненты товаров
 Vue.component('search', {
     props: [],
-    template: '<div class="search"><input type="search" v-on:keydown.enter="app.filterGoods()" v-model="app.searchLine" placeholder="Type and press enter"></div>'
+    template: '<div class="search"><input type="search" v-on:keydown.enter="filterGoods" v-model="app.searchLine" placeholder="Type and press enter"></div>'
 });
+
+
+function filterGoods() {
+    app.filterGoods();
+}
+function addBasket(event) {
+    app.addToBasket(event.target.id);
+}
+function deleteItem(event) {
+    app.deleteFromBasket(event.target.id);
+}
